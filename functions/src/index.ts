@@ -1,4 +1,4 @@
-export { default as shoutOuts } from "./routes/shoutOutsRoute";
+export { default as shoutOuts } from "./routes/shoutOuts";
 
 
 // // Start writing Firebase Functions
