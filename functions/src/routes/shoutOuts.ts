@@ -1,6 +1,5 @@
 import * as functions from "firebase-functions";
 
-import { ObjectId } from "mongodb";
 import ShoutOut from "../model/ShoutOut";
 import cors from "cors";
 import express from "express";

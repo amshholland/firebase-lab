@@ -15,5 +15,5 @@ export function createShoutOut( shoutOut: ShoutOut ): Promise<ShoutOut> {
 }
 
 export function deleteShoutOut( shoutOutId: string ): Promise<void> {
-    return axios.delete( `${ baseUrl }/${ encodeURIComponent( ShoutOutId ) }` );
+    return axios.delete( `${ baseUrl }/${ encodeURIComponent( shoutOutId ) }` );
 }
