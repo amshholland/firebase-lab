@@ -1,6 +1,6 @@
 import './App.css';
 
-import { Route, Router, Switch } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 
 import Header from './components/Header';
 import React from 'react';
@@ -10,8 +10,8 @@ import ShoutOutsList from './components/ShoutOutsList';
 function App() {
   return (
     <Router>
-      <Header />
       <div className="App">
+        <Header />
         <Switch>
           <Route path="/to/:name">
             <ShoutOutsByName />
