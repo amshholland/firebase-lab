@@ -1,6 +1,3 @@
-export { default as shoutOuts } from "./routes/shoutOuts";
-
-
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
 //
@@ -8,3 +5,5 @@ export { default as shoutOuts } from "./routes/shoutOuts";
 //   functions.logger.info("Hello logs!", {structuredData: true});
 //   response.send("Hello from Firebase!");
 // });
+
+export { default as shoutOuts } from "./routes/shoutOuts";

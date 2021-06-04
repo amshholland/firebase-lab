@@ -8,7 +8,6 @@ import ShoutOutCard from "./ShoutOutCard";
 import { ShoutOutForm } from "./ShoutOutForm";
 
 export default function ShoutOutsList() {
-    // array of ShoutOuts from the API
     const [ shoutOuts, setShoutOuts ] = useState<ShoutOut[]>( [] );
     const [ shoutOutsLoaded, setShoutOutsLoaded ] = useState( false );
 
@@ -35,15 +34,17 @@ export default function ShoutOutsList() {
 
     return (
         <div className="ShoutOutsList">
-            <h2>All Shout Outs</h2>
             { !shoutOutsLoaded ?
-                <p>Loading...</p>
+                <p className="ShoutOutList__message">Loading...</p>
                 : shoutOuts.length === 0 ?
-                    <p>No ShoutOuts</p>
-                    : shoutOuts.map( shoutOutCard =>
-                        <ShoutOutCard key={ shoutOutCard._id } shoutOut={ shoutOutCard } onDelete={ () => handleDeleteShoutOut( shoutOutCard._id ) } /> )
+                    <p className="ShoutOutList__message">No Shout Outs</p>
+                    :
+                    shoutOuts.map( eachShoutOut =>
+                        <ShoutOutCard key={ eachShoutOut._id } shoutOut={ eachShoutOut }
+                            onDelete={ () => handleDeleteShoutOut( eachShoutOut._id ) }
+                        /> )
             }
-            <h2>Leave a Shout Out</h2>
+            <h3>Leave a Shout Out</h3>
             <ShoutOutForm onSubmit={ handleAddShoutOut } />
         </div>
     );

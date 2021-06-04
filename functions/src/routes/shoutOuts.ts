@@ -1,5 +1,6 @@
 import * as functions from "firebase-functions";
 
+import { ObjectId } from "mongodb";
 import ShoutOut from "../model/ShoutOut";
 import cors from "cors";
 import express from "express";
@@ -29,6 +30,23 @@ app.post( "/", async ( req, res ) => {
         const result = await client.db().collection<ShoutOut>( 'shoutOuts' ).insertOne( shoutOut );
         shoutOut._id = result.insertedId;
         res.status( 201 ).json( shoutOut );
+    } catch ( err ) {
+        console.error( "FAIL", err );
+        res.status( 500 ).json( { message: "Internal Server Error" } );
+    }
+} );
+
+// Delete shout out
+app.delete( "/:id", async ( req, res ) => {
+    const id = req.params.id;
+    try {
+        const client = await getClient();
+        const result = await client.db().collection<ShoutOut>( 'shoutOuts' ).deleteOne( { _id: new ObjectId( id ) } );
+        if ( result.deletedCount === 0 ) {
+            res.status( 404 ).json( { message: "Not Found" } );
+        } else {
+            res.status( 204 ).end();
+        }
     } catch ( err ) {
         console.error( "FAIL", err );
         res.status( 500 ).json( { message: "Internal Server Error" } );
