@@ -1,3 +1,5 @@
+import './ShoutOutForm.css';
+
 import { ChangeEvent, FormEvent, useState } from "react";
 
 import ShoutOut from "../model/ShoutOut";
@@ -20,30 +22,24 @@ export function ShoutOutForm( { onSubmit }: Props ) {
         };
         onSubmit( shoutOut );
 
-        // clear form
         setTo( "" );
         setFrom( "" );
         setMessage( "" );
     }
 
-
-    function handleAddShoutOut() {
-
-    }
-
     return (
         <form onSubmit={ handleSubmit } className="ShoutOutForm">
-            <h1>Leave a Shout Out</h1>
-            <label>To
-                <input type="text" />
+            <h2>Leave a Shout Out</h2>
+            <label><strong>To</strong><br />
+                <input type="text" value={ to } onChange={ e => setTo( e.target.value ) } required />
             </label>
-            <label>From
-                <input type="text" />
+            <label><strong>From</strong><br />
+                <input type="text" value={ from } onChange={ e => setFrom( e.target.value ) } required />
             </label>
-            <label>Message
-                <input type="text" />
+            <label><strong>Message</strong><br />
+                <textarea rows={ 4 } value={ message } onChange={ e => setMessage( e.target.value ) } required></textarea>
             </label>
             <button type="submit">Submit</button>
-        </form>
+        </form >
     );
 }

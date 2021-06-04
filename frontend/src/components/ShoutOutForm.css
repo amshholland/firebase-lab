@@ -1,0 +1,24 @@
+.ShoutOutForm {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    border: 1px solid black;
+    padding-bottom: 15px;
+    justify-content: center;
+    margin: auto;
+}
+
+button {
+    width: 25%;
+    align-self: center;
+}
+
+label{
+    text-align: left;
+    margin: auto
+}
+
+textarea {
+    width: 169px;
+    padding: 1px 2px;
+}

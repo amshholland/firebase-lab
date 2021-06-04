@@ -12,6 +12,16 @@ app.use( express.json() );
 
 // Get all shout outs
 app.get( "/", async ( req, res ) => {
+    const to = req.query.to;
+
+    // initially search for everything
+    const mongoQuery: any = {};
+
+    // if there is a name to query, add it to mongo query
+    if ( to ) {
+        mongoQuery.name = to;
+    }
+
     try {
         const client = await getClient();
         const results = await client.db().collection<ShoutOut>( 'shoutOuts' ).find().toArray();
@@ -20,6 +30,11 @@ app.get( "/", async ( req, res ) => {
         console.error( "FAIL", err );
         res.status( 500 ).json( { message: "Internal Server Error" } );
     }
+} );
+
+app.get( "/", async ( req, res ) => {
+
+
 } );
 
 // Add new shout out
