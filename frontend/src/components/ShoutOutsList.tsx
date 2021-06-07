@@ -1,5 +1,7 @@
 // all API calls in this file
 
+import './ShoutOutsList.css';
+
 import React, { useEffect, useState } from "react";
 import { createShoutOut, deleteShoutOut, readAllShoutOuts } from "../service/ShoutOutApiService";
 
@@ -34,18 +36,22 @@ export default function ShoutOutsList() {
 
     return (
         <div className="ShoutOutsList">
-            { !shoutOutsLoaded ?
-                <p className="ShoutOutList__message">Loading...</p>
-                : shoutOuts.length === 0 ?
-                    <p className="ShoutOutList__message">No Shout Outs</p>
-                    :
-                    shoutOuts.map( eachShoutOut =>
-                        <ShoutOutCard key={ eachShoutOut._id } shoutOut={ eachShoutOut }
-                            onDelete={ () => handleDeleteShoutOut( eachShoutOut._id ) }
-                        /> )
-            }
-            <h3>Leave a Shout Out</h3>
             <ShoutOutForm onSubmit={ handleAddShoutOut } />
+
+            <div className="shoutOutsDiv">
+                <h3>All Shout Outs</h3>
+                { !shoutOutsLoaded ?
+                    <p className="ShoutOutList__message">Loading...</p>
+                    : shoutOuts.length === 0 ?
+                        <h4 className="ShoutOutList__message">No Shout Outs</h4>
+                        :
+                        shoutOuts.map( eachShoutOut =>
+                            <ShoutOutCard key={ eachShoutOut._id } shoutOut={ eachShoutOut }
+                                onDelete={ () => handleDeleteShoutOut( eachShoutOut._id ) }
+                            /> )
+                }
+            </div>
+
         </div>
     );
 }

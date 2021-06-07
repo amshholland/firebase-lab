@@ -1,0 +1,44 @@
+.ShoutOutCard {
+        display: flex;
+    justify-content: left;
+    align-items: baseline;
+    width: 100%;
+    border: 1px solid #aaa;
+    padding: 15px;
+    margin: 1% auto;
+    background-color: white;
+}
+
+.details {
+    flex: 3     
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.h3, .h4 {
+    margin: 0 3px 3px 3px;
+}
+
+.cardMessage {
+    margin: 0;
+    padding: 0px 3px;
+    text-align: left;
+}
+
+.deleteDiv {
+    align-self: center;
+}
+
+.delete {
+    border: 1px solid #aaa;
+    border-radius: 50%;
+    background-color: navy;
+    align-self: center;
+    color: white;
+    height: 30px;
+    width: 30px;
+}

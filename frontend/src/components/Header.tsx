@@ -12,11 +12,14 @@ export default function Header() {
 
     return (
         <header className="Header">
-            <button onClick={ signInWithGoogle }>Sign in with Google</button>
-            <button onClick={ signOut }>Sign Out</button>
-            {user && <div>
-                Welcome { user.displayName }
-            </div> }
+            {/* If not logged in, display sign in button, otherwise display sign out button */ }
+            {user ?
+                <div>
+                    <button onClick={ signOut }>Sign Out</button>
+                    <br />
+                    <h2 className="welcome">Welcome { user.displayName }</h2>
+                </div> :
+                <button onClick={ signInWithGoogle }>Sign in with Google</button> }
         </header>
     );
 };

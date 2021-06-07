@@ -13,14 +13,13 @@ function App() {
       <div className="App">
         <Header />
         <Switch>
-          <Route path="/to/:name">
-            <ShoutOutsByName />
-          </Route>
           <Route path="/">
             <ShoutOutsList />
           </Route>
+          <Route path="/to/:name">
+            <ShoutOutsByName />
+          </Route>
         </Switch>
-
       </div>
     </Router>
   );

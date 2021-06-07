@@ -1,24 +1,43 @@
 .ShoutOutForm {
     display: flex;
     flex-direction: column;
-    width: 50%;
-    border: 1px solid black;
-    padding-bottom: 15px;
-    justify-content: center;
-    margin: auto;
+    justify-content: flex-start;
+    align-content: flex-start;
+    width: 90%;
+    border: 1px solid #aaa;
+    padding: 15px;
+    margin: 1% auto;
+    background-color: white;
 }
 
-button {
+.submit {
     width: 25%;
-    align-self: center;
+    margin-top: 2%;
+    border-color: #999;
 }
 
-label{
+.toFrom, .message{
+    display: flex;
+    align-content: space-between;
     text-align: left;
+    width: 100%;
     margin: auto
 }
 
+.toFrom {
+    color: #333;
+}
+
+.inputBox {
+    width: 100%;
+    margin: 1% 0% 1% 2%;
+}
+
+.message {
+    flex-direction: column;
+}
+
 textarea {
-    width: 169px;
+    width: 99%;
     padding: 1px 2px;
 }

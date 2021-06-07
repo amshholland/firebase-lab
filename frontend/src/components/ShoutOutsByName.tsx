@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { createShoutOut, deleteShoutOut, readAllShoutOuts } from "../service/ShoutOutApiService";
 
+import { AuthContext } from "../context/auth-context";
 import ShoutOut from "../model/ShoutOut";
 import ShoutOutCard from "./ShoutOutCard";
 import { ShoutOutForm } from "./ShoutOutForm";
@@ -26,9 +27,9 @@ export default function ShoutOutsByName() {
         createShoutOut( shoutOut ).then( loadShoutOuts );
     }
 
-    function handleDeleteShoutOut( studentId: string | undefined ): void {
-        if ( studentId ) {
-            deleteShoutOut( studentId ).then( loadShoutOuts );
+    function handleDeleteShoutOut( shoutOutId: string | undefined ): void {
+        if ( shoutOutId ) {
+            deleteShoutOut( shoutOutId ).then( loadShoutOuts );
         }
     }
 
@@ -44,8 +45,10 @@ export default function ShoutOutsByName() {
                             onDelete={ () => handleDeleteShoutOut( eachShoutOut._id ) }
                         /> )
             }
-            <h3>Leave a Shout Out</h3>
-            <ShoutOutForm onSubmit={ handleAddShoutOut } />
+            {!AuthContext ?
+                <ShoutOutForm onSubmit={ handleAddShoutOut } /> :
+                <p>Log In to Send A Shout Out</p>
+            }
         </div>
     );
 }

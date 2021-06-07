@@ -5,9 +5,11 @@ import firebase from '../firebaseConfig';
 export interface AuthContextValue {
     user: firebase.User | null; // null when not logged in
 }
+
 const defaultValue: AuthContextValue = {
     user: null
 };
+
 export const AuthContext = createContext( defaultValue );
 
 export function AuthContextProvider( { children }: { children: ReactNode; } ) {

@@ -14,7 +14,8 @@ jobs:
       - run: npm ci && npm run build
         working-directory: ./frontend
         env:
-          REACT_APP_API_URL: https://us-central1-shout-outs-lab-8b629.cloudfunctions.net/shoutOuts
+          #REACT_APP_API_URL: https://us-central1-shout-outs-lab-8b629.cloudfunctions.net/shoutOuts
+          REACT_APP_API_URL=http://localhost:5001/shout-outs-lab-8b629/us-central1/shoutOuts
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'

@@ -29,17 +29,20 @@ export function ShoutOutForm( { onSubmit }: Props ) {
 
     return (
         <form onSubmit={ handleSubmit } className="ShoutOutForm">
-            <h2>Leave a Shout Out</h2>
-            <label><strong>To</strong><br />
-                <input type="text" value={ to } onChange={ e => setTo( e.target.value ) } required />
+
+            <h3>Leave a Shout Out</h3>
+
+            <label className="toFrom"><strong>To: </strong>
+                <input type="text" className="inputBox" value={ to } onChange={ e => setTo( e.target.value ) } required />
             </label>
-            <label><strong>From</strong><br />
-                <input type="text" value={ from } onChange={ e => setFrom( e.target.value ) } required />
+            <label className="toFrom"><strong>From: </strong>
+                <input type="text" className="inputBox" value={ from } onChange={ e => setFrom( e.target.value ) } required />
             </label>
-            <label><strong>Message</strong><br />
+            <label className="message"><strong>Message: </strong>
                 <textarea rows={ 4 } value={ message } onChange={ e => setMessage( e.target.value ) } required></textarea>
             </label>
-            <button type="submit">Submit</button>
+
+            <button type="submit" className="submit">Submit</button>
         </form >
     );
 }
