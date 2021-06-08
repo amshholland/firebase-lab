@@ -3,4 +3,5 @@ export default interface Student {
     to: string;
     from: string;
     message: string;
+    shoutOutPhoto?: string;
 }
